@@ -1,16 +1,81 @@
-# React + Vite
+# Youssef Imlilss - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Modern UI with gradient animations
+- 📱 Fully responsive design
+- ✨ Smooth scroll animations
+- 🎭 Professional styling with glassmorphism effects
+- ⚡ Fast and optimized with Vite
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS
+- Express (for production server)
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Deployment to Railway
+
+### Prerequisites
+
+1. A Railway account (sign up at [railway.app](https://railway.app))
+2. Git repository (GitHub, GitLab, or Bitbucket)
+
+### Steps
+
+1. **Push your code to GitHub/GitLab**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin <your-repo-url>
+   git push -u origin main
+   ```
+
+2. **Connect to Railway**
+   - Go to [railway.app](https://railway.app)
+   - Click "New Project"
+   - Select "Deploy from GitHub repo"
+   - Choose your repository
+
+3. **Railway will automatically:**
+   - Detect the Node.js project
+   - Install dependencies
+   - Build the project (`npm run build`)
+   - Start the server (`npm start`)
+
+4. **Configure Environment Variables (if needed)**
+   - Railway will automatically set the `PORT` environment variable
+   - No additional configuration needed
+
+5. **Deploy**
+   - Railway will automatically deploy on every push to your main branch
+   - Your site will be live at a `railway.app` domain
+   - You can add a custom domain in Railway settings
+
+### Configuration Files
+
+- `railway.json` - Railway deployment configuration
+- `nixpacks.toml` - Nixpacks build configuration
+- `server.js` - Express server for serving the built files
+
+The deployment is fully automated - just push your code and Railway handles the rest!
