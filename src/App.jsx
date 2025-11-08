@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const heroRef = useRef(null)
   const aboutRef = useRef(null)
   const skillsRef = useRef(null)
@@ -12,6 +13,9 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      
+      // Close mobile menu on scroll
+      setMobileMenuOpen(false)
       
       // Parallax effect for hero section
       if (heroRef.current) {
@@ -48,6 +52,29 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const downloadPDF = async () => {
+    try {
+      const html2pdf = await import('html2pdf.js')
+  
+      // Select specific section instead of full body
+      const element = document.getElementById('pdf-content') || document.body
+  
+      const opt = {
+        margin: 0.5,
+        filename: 'Youssef_Imlilss_Portfolio.pdf',
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      }
+  
+      await html2pdf.default().set(opt).from(element).save()
+    } catch (error) {
+      console.error('Error generating PDF:', error)
+      alert('PDF generation failed. Please use Print (Ctrl+P) and save as PDF instead.')
+      window.print()
+    }
+  }
+
   return (
     <div className="min-h-screen relative overflow-x-hidden" style={{ backgroundColor: '#605e5e' }}>
       {/* Navigation */}
@@ -63,14 +90,12 @@ function App() {
             <div className="text-2xl font-bold text-white">
               Youssef Imlilss
             </div>
-            <div className="hidden md:flex space-x-8">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
               <a 
                 href="#about" 
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  activeSection === 'about' 
-                    ? '' 
-                    : 'text-gray-700'
-                }`}
+                className="text-sm font-medium transition-colors duration-300"
                 style={activeSection === 'about' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
                 onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
                 onMouseLeave={(e) => e.target.style.color = activeSection === 'about' ? '#e7ff6e' : '#e5e7eb'}
@@ -79,11 +104,7 @@ function App() {
               </a>
               <a 
                 href="#skills" 
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  activeSection === 'skills' 
-                    ? '' 
-                    : 'text-gray-700'
-                }`}
+                className="text-sm font-medium transition-colors duration-300"
                 style={activeSection === 'skills' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
                 onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
                 onMouseLeave={(e) => e.target.style.color = activeSection === 'skills' ? '#e7ff6e' : '#e5e7eb'}
@@ -92,19 +113,94 @@ function App() {
               </a>
               <a 
                 href="#contact" 
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  activeSection === 'contact' 
-                    ? '' 
-                    : 'text-gray-700'
-                }`}
+                className="text-sm font-medium transition-colors duration-300"
                 style={activeSection === 'contact' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
                 onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
                 onMouseLeave={(e) => e.target.style.color = activeSection === 'contact' ? '#e7ff6e' : '#e5e7eb'}
               >
                 Contact
               </a>
+              <button
+                onClick={downloadPDF}
+                className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                style={{ backgroundColor: '#e7ff6e', color: '#000' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#d4f05a'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#e7ff6e'}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download PDF
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center gap-3">
+              <button
+                onClick={downloadPDF}
+                className="p-2 rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#e7ff6e', color: '#000' }}
+                title="Download PDF"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-white focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden pb-4 border-t" style={{ borderColor: 'rgba(231, 255, 110, 0.3)' }}>
+              <div className="flex flex-col space-y-3 mt-4">
+                <a 
+                  href="#about" 
+                  className="text-sm font-medium py-2 transition-colors duration-300"
+                  style={activeSection === 'about' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
+                  onMouseLeave={(e) => e.target.style.color = activeSection === 'about' ? '#e7ff6e' : '#e5e7eb'}
+                >
+                  About
+                </a>
+                <a 
+                  href="#skills" 
+                  className="text-sm font-medium py-2 transition-colors duration-300"
+                  style={activeSection === 'skills' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
+                  onMouseLeave={(e) => e.target.style.color = activeSection === 'skills' ? '#e7ff6e' : '#e5e7eb'}
+                >
+                  Skills
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-sm font-medium py-2 transition-colors duration-300"
+                  style={activeSection === 'contact' ? { color: '#e7ff6e' } : { color: '#e5e7eb' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  onMouseEnter={(e) => e.target.style.color = '#e7ff6e'}
+                  onMouseLeave={(e) => e.target.style.color = activeSection === 'contact' ? '#e7ff6e' : '#e5e7eb'}
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
