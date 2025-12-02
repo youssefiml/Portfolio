@@ -279,7 +279,7 @@ function App() {
               I am a <span className="font-semibold" style={{ color: '#e7ff6e' }}>Full-Stack Web Developer</span> specialized in the <span className="font-semibold" style={{ color: '#e7ff6e' }}>MERN stack</span> (MongoDB, Express.js, React, and Node.js), passionate about building modern, scalable, and user-focused web applications.
             </p>
             <p>
-              With a background in <span className="font-semibold" style={{ color: '#e7ff6e' }}>Software Engineering</span> and over <span className="font-semibold" style={{ color: '#e7ff6e' }}>2 years</span> of hands-on experience in the IT field, I've developed strong expertise in both front-end and back-end development — from crafting responsive interfaces to designing efficient server-side architectures and APIs.
+              With over <span className="font-semibold" style={{ color: '#e7ff6e' }}>2 years</span> of hands-on experience in the IT field, I've developed strong expertise in both front-end and back-end development — from crafting responsive interfaces to designing efficient server-side architectures and APIs.
             </p>
             <p>
               Driven by curiosity and continuous learning, I enjoy turning complex problems into elegant, functional solutions. I thrive in collaborative environments where innovation, clean code, and user experience come together to create impactful digital products.
