@@ -235,7 +235,7 @@ function App() {
             Full-Stack Web Developer
           </p>
           <p className="text-lg md:text-xl text-gray-300 mb-12 animate-fade-in-up animation-delay-600">
-            Age: 22 | MERN Stack Specialist
+            Age: 23 | MERN Stack Specialist
           </p>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-300 leading-relaxed mb-12 animate-fade-in-up animation-delay-800">
             Passionate about building <span className="font-semibold" style={{ color: '#e7ff6e' }}>modern</span>, <span className="font-semibold" style={{ color: '#e7ff6e' }}>scalable</span>, and <span className="font-semibold" style={{ color: '#e7ff6e' }}>user-focused</span> web applications
