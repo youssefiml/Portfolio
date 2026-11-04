@@ -14,6 +14,8 @@ export const projects = [
     contribution: 'I contributed to the registration interface and added reusable Radix checkbox and radio components, alongside form validation.',
     link: 'https://github.com/youssefiml/boarding/commit/a09d8638feeff007194e3f6b7095c2f101fe013f', linkText: 'Explore the contribution',
     sourceLink: 'https://github.com/youssefiml/boarding', status: 'Frontend contribution', color: 'blue',
+    system: ['React interface', 'Typed API client', 'Product data'],
+    repositoryEvidence: 'The public repository documents the wider student journey and typed API structure.',
     artwork: ['STUDENT EXPERIENCE', 'Applications / onboarding', 'Form controls · typed API']
   },
   {
@@ -26,6 +28,8 @@ export const projects = [
     contribution: 'I contributed changes to the scoring service to identify maturity gaps and produce more descriptive explanations.',
     link: 'https://github.com/youssefiml/DigiAssistant/commit/7526b3b88e3836fa5c43ad9e00f042f2bc4ec114', linkText: 'Explore the contribution',
     sourceLink: 'https://github.com/youssefiml/DigiAssistant', status: 'Scoring-service contribution', color: 'clay',
+    system: ['React client', 'FastAPI service', 'MongoDB'],
+    repositoryEvidence: 'The repository includes separate frontend and backend layers, scoring services, and AI-provider dependencies.',
     artwork: ['DIGITAL MATURITY', 'Conversation / insight', 'React · FastAPI · MongoDB']
   },
   {
@@ -38,6 +42,8 @@ export const projects = [
     contribution: 'I contributed a responsive back-office story layout, including a horizontally scrollable layout for narrower screens.',
     link: 'https://github.com/youssefiml/HKids/commit/80a12d3e33e8f7e926bde678e17f72d3813b6a39', linkText: 'Explore the contribution',
     sourceLink: 'https://github.com/youssefiml/HKids', status: 'Back-office contribution', color: 'sage',
+    system: ['React client', 'Express API', 'MongoDB'],
+    repositoryEvidence: 'Public source shows separate reader, administration, and parent route groups.',
     artwork: ['READING PLATFORM', 'Reader / content', 'React · Express · TypeScript']
   },
   {
@@ -50,6 +56,8 @@ export const projects = [
     contribution: 'I contributed changes to cross-origin configuration for a separate frontend and backend deployment.',
     link: 'https://github.com/youssefiml/W-allfit/commit/6360f21390986bbe43c0c1634dcc0b9a7343cab8', linkText: 'Explore the contribution',
     sourceLink: 'https://github.com/youssefiml/W-allfit', status: 'Team project · deployment configuration', color: 'lilac',
+    system: ['React client', 'Express server', 'MongoDB'],
+    repositoryEvidence: 'The repository credits the WALLFIT team and documents the client, server, and database layers.',
     artwork: ['WELLNESS PRODUCT', 'Programs / community', 'React · Express · MongoDB']
   },
   {
@@ -61,6 +69,8 @@ export const projects = [
     challenge: 'The interface brings public resources and protected community and administration routes into one navigation.',
     link: 'https://github.com/youssefiml/StudyGuide', linkText: 'Explore the repository',
     sourceLink: 'https://github.com/youssefiml/StudyGuide', status: 'Student resources application', color: 'blue',
+    system: ['React routes', 'Auth context', 'Supabase client'],
+    repositoryEvidence: 'Public routing shows schools, scholarships, articles, community, and protected administration areas; the manifest lists Supabase.',
     artwork: ['STUDENT RESOURCES', 'Discover / connect', 'React · TypeScript · Supabase']
   }
 ];

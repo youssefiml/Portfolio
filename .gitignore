@@ -9,6 +9,7 @@ lerna-debug.log*
 
 .agents/
 .impeccable/
+/.taste-skill/
 /concept-previews/
 
 node_modules

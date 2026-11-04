@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import './TechText.css';
 
-const LABEL_FONT = '10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+const LABEL_FONT = '13px "Avenir Next", Avenir, "Helvetica Neue", sans-serif';
 const FALLOFF_STEPS = 8;
 const SPRING = 320;
 const INHERIT = /^(currentcolor|inherit)$/i;
